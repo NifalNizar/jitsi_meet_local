@@ -43,7 +43,7 @@ public class JitsiMeetLocalPlugin() : FlutterPlugin, MethodCallHandler, Activity
         channel.setMethodCallHandler(this)
 
         eventChannel = EventChannel(flutterPluginBinding.binaryMessenger, JITSI_EVENT_CHANNEL)
-        eventChannel.setStreamHandler(JitsiMeetEventStreamHandler.instance)
+        eventChannel.setStreamHandler(JitsiMeetLocalEventStreamHandler.instance)
     }
 
     override fun onDetachedFromEngine(@NonNull binding: FlutterPlugin.FlutterPluginBinding) {
@@ -69,7 +69,7 @@ public class JitsiMeetLocalPlugin() : FlutterPlugin, MethodCallHandler, Activity
 
 
             val eventChannel = EventChannel(registrar.messenger(), JITSI_EVENT_CHANNEL)
-            eventChannel.setStreamHandler(JitsiMeetEventStreamHandler.instance)
+            eventChannel.setStreamHandler(JitsiMeetLocalEventStreamHandler.instance)
         }
 
         const val JITSI_PLUGIN_TAG = "JITSI_MEET_PLUGIN"

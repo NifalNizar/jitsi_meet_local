@@ -37,10 +37,10 @@ class JitsiMeetLocalPluginActivity : JitsiMeetActivity() {
         super.onPictureInPictureModeChanged(isInPictureInPictureMode, newConfig)
 
         if (isInPictureInPictureMode){
-            JitsiMeetEventStreamHandler.instance.onPictureInPictureWillEnter()
+            JitsiMeetLocalEventStreamHandler.instance.onPictureInPictureWillEnter()
         }
         else {
-            JitsiMeetEventStreamHandler.instance.onPictureInPictureTerminated()
+            JitsiMeetLocalEventStreamHandler.instance.onPictureInPictureTerminated()
         }
 
         if (isInPictureInPictureMode == false && onStopCalled) {
@@ -71,20 +71,20 @@ class JitsiMeetLocalPluginActivity : JitsiMeetActivity() {
 
     override fun onConferenceWillJoin(data: HashMap<String, Any>) {
         Log.d(JITSI_PLUGIN_TAG, String.format("JitsiMeetLocalPluginActivity.onConferenceWillJoin: %s", data))
-        JitsiMeetEventStreamHandler.instance.onConferenceWillJoin(data)
+        JitsiMeetLocalEventStreamHandler.instance.onConferenceWillJoin(data)
         super.onConferenceWillJoin(data)
     }
 
     override fun onConferenceJoined(data: HashMap<String, Any>) {
         Log.d(JITSI_PLUGIN_TAG, String.format("JitsiMeetLocalPluginActivity.onConferenceJoined: %s", data))
-        JitsiMeetEventStreamHandler.instance.onConferenceJoined(data)
+        JitsiMeetLocalEventStreamHandler.instance.onConferenceJoined(data)
         super.onConferenceJoined(data)
     }
 
     override fun onConferenceTerminated(data: HashMap<String, Any>) {
 
         Log.d(JITSI_PLUGIN_TAG, String.format("JitsiMeetLocalPluginActivity.onConferenceTerminated: %s", data))
-        JitsiMeetEventStreamHandler.instance.onConferenceTerminated(data)
+        JitsiMeetLocalEventStreamHandler.instance.onConferenceTerminated(data)
         super.onConferenceTerminated(data)
     }
 
