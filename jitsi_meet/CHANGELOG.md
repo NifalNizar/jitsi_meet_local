@@ -1,3 +1,6 @@
+## 1.0.6
+* Android Changes
+
 ## 1.0.5
 * Android Changes
 
