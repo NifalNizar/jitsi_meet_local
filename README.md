@@ -1,4 +1,4 @@
-# jitsi_meet
+# jitsi_meet_local
 
 ## IMPORTANT ##
 This plugin is no longer maintained. See https://pub.dev/packages/jitsi_meet_wrapper instead.

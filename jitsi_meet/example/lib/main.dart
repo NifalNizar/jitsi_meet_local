@@ -1,9 +1,8 @@
 import 'dart:io';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:jitsi_meet/jitsi_meet.dart';
+import 'package:jitsi_meet_local/jitsi_meet.dart';
 
 void main() => runApp(MyApp());
 
