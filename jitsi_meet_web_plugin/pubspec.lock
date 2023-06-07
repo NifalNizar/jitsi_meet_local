@@ -64,14 +64,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  jitsi_meet_platform_interface:
+  jitsi_meet_platform_interface_local:
     dependency: "direct main"
     description:
-      name: jitsi_meet_platform_interface
-      sha256: "161bdedd62a2756e5e2ce868c1e8f82d040f1ad24cc46c3c028ac04e339d9492"
+      name: jitsi_meet_platform_interface_local
+      sha256: e2ceb6bd5ba55ea230850750626704fef628cd966ae62b6ade4db796a50a738f
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.0"
+    version: "1.0.0"
   js:
     dependency: "direct main"
     description:
@@ -124,10 +124,10 @@ packages:
     dependency: transitive
     description:
       name: plugin_platform_interface
-      sha256: c2c49e16d42fd6983eb55e44b7f197fdf16b4da7aab7f8e1d21da307cad3fb02
+      sha256: "6a2128648c854906c53fa8e33986fc0247a1116122f9534dd20e3ab9e16a32bc"
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.0"
+    version: "2.1.4"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -190,5 +190,5 @@ packages:
     source: hosted
     version: "2.1.4"
 sdks:
-  dart: ">=3.0.0-0 <4.0.0"
+  dart: ">=3.0.0 <4.0.0"
   flutter: ">=1.20.0"
