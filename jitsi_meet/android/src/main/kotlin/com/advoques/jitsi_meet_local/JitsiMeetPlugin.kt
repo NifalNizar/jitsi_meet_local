@@ -18,8 +18,8 @@ import org.jitsi.meet.sdk.JitsiMeetUserInfo
 import java.net.URL
 
 
-/** JitsiMeetPlugin */
-public class JitsiMeetPlugin() : FlutterPlugin, MethodCallHandler, ActivityAware {
+/** JitsiMeetLocalPlugin */
+public class JitsiMeetLocalPlugin() : FlutterPlugin, MethodCallHandler, ActivityAware {
 
     // The MethodChannel that will hold the communication between Flutter and native Android
     // This local reference serves to register the plugin with the Flutter Engine and unregister it
@@ -63,7 +63,7 @@ public class JitsiMeetPlugin() : FlutterPlugin, MethodCallHandler, ActivityAware
     companion object {
         @JvmStatic
         fun registerWith(registrar: Registrar) {
-            val plugin = JitsiMeetPlugin(registrar.activity())
+            val plugin = JitsiMeetLocalPlugin(registrar.activity())
             val channel = MethodChannel(registrar.messenger(), JITSI_METHOD_CHANNEL)
             channel.setMethodCallHandler(plugin)
 
@@ -154,7 +154,7 @@ public class JitsiMeetPlugin() : FlutterPlugin, MethodCallHandler, ActivityAware
         // Build with meeting options and feature flags
         val options = optionsBuilder.build()
 
-        JitsiMeetPluginActivity.launchActivity(activity, options)
+        JitsiMeetLocalPluginActivity.launchActivity(activity, options)
         result.success("Successfully joined room: $room")
     }
 

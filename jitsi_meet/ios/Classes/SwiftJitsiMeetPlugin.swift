@@ -2,7 +2,7 @@ import Flutter
 import UIKit
 import JitsiMeetSDK
 
-public class SwiftJitsiMeetPlugin: NSObject, FlutterPlugin, FlutterStreamHandler {
+public class SwiftJitsiMeetLocalPlugin: NSObject, FlutterPlugin, FlutterStreamHandler {
     var window: UIWindow?
 
     var uiVC : UIViewController
@@ -21,7 +21,7 @@ public class SwiftJitsiMeetPlugin: NSObject, FlutterPlugin, FlutterStreamHandler
         let viewController: UIViewController =
             (UIApplication.shared.delegate?.window??.rootViewController)!
 
-        let instance = SwiftJitsiMeetPlugin(uiViewController: viewController)
+        let instance = SwiftJitsiMeetLocalPlugin(uiViewController: viewController)
 
         registrar.addMethodCallDelegate(instance, channel: channel)
 

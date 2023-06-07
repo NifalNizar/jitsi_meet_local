@@ -2,7 +2,7 @@
   package="com.advoques.jitsi_meet_local">
     <application>
         <activity
-            android:name=".JitsiMeetPluginActivity"
+            android:name=".JitsiMeetLocalPluginActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize"
             android:launchMode="singleTask"
             android:resizeableActivity="true"

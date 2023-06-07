@@ -1,7 +1,7 @@
 package com.advoques.jitsi_meet_local
 
 import android.util.Log
-import com.advoques.jitsi_meet_local.JitsiMeetPlugin.Companion.JITSI_PLUGIN_TAG
+import com.advoques.jitsi_meet_local.JitsiMeetLocalPlugin.Companion.JITSI_PLUGIN_TAG
 import io.flutter.plugin.common.EventChannel
 import java.io.Serializable
 

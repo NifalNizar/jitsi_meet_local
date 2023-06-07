@@ -1,4 +1,4 @@
 #import <Flutter/Flutter.h>
 
-@interface JitsiMeetPlugin : NSObject<FlutterPlugin>
+@interface JitsiMeetLocalPlugin : NSObject<FlutterPlugin>
 @end

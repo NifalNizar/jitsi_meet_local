@@ -1,4 +1,4 @@
-#import "JitsiMeetPlugin.h"
+#import "JitsiMeetLocalPlugin.h"
 #if __has_include(<jitsi_meet/jitsi_meet-Swift.h>)
 #import <jitsi_meet/jitsi_meet-Swift.h>
 #else
@@ -8,8 +8,8 @@
 #import "jitsi_meet-Swift.h"
 #endif
 
-@implementation JitsiMeetPlugin
+@implementation JitsiMeetLocalPlugin
 + (void)registerWithRegistrar:(NSObject<FlutterPluginRegistrar>*)registrar {
-  [SwiftJitsiMeetPlugin registerWithRegistrar:registrar];
+  [SwiftJitsiMeetLocalPlugin registerWithRegistrar:registrar];
 }
 @end

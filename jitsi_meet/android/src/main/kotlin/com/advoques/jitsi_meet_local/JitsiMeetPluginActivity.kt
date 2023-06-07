@@ -10,20 +10,20 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.WindowManager
-import com.advoques.jitsi_meet_local.JitsiMeetPlugin.Companion.JITSI_MEETING_CLOSE
-import com.advoques.jitsi_meet_local.JitsiMeetPlugin.Companion.JITSI_PLUGIN_TAG
+import com.advoques.jitsi_meet_local.JitsiMeetLocalPlugin.Companion.JITSI_MEETING_CLOSE
+import com.advoques.jitsi_meet_local.JitsiMeetLocalPlugin.Companion.JITSI_PLUGIN_TAG
 import org.jitsi.meet.sdk.JitsiMeetActivity
 import org.jitsi.meet.sdk.JitsiMeetConferenceOptions
 
 /**
  * Activity extending JitsiMeetActivity in order to override the conference events
  */
-class JitsiMeetPluginActivity : JitsiMeetActivity() {
+class JitsiMeetLocalPluginActivity : JitsiMeetActivity() {
     companion object {
         @JvmStatic
         fun launchActivity(context: Context?,
                            options: JitsiMeetConferenceOptions) {
-            var intent = Intent(context, JitsiMeetPluginActivity::class.java).apply {
+            var intent = Intent(context, JitsiMeetLocalPluginActivity::class.java).apply {
                 action = "org.jitsi.meet.CONFERENCE"
                 putExtra("JitsiMeetConferenceOptions", options)
             }
@@ -70,20 +70,20 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
     }
 
     override fun onConferenceWillJoin(data: HashMap<String, Any>) {
-        Log.d(JITSI_PLUGIN_TAG, String.format("JitsiMeetPluginActivity.onConferenceWillJoin: %s", data))
+        Log.d(JITSI_PLUGIN_TAG, String.format("JitsiMeetLocalPluginActivity.onConferenceWillJoin: %s", data))
         JitsiMeetEventStreamHandler.instance.onConferenceWillJoin(data)
         super.onConferenceWillJoin(data)
     }
 
     override fun onConferenceJoined(data: HashMap<String, Any>) {
-        Log.d(JITSI_PLUGIN_TAG, String.format("JitsiMeetPluginActivity.onConferenceJoined: %s", data))
+        Log.d(JITSI_PLUGIN_TAG, String.format("JitsiMeetLocalPluginActivity.onConferenceJoined: %s", data))
         JitsiMeetEventStreamHandler.instance.onConferenceJoined(data)
         super.onConferenceJoined(data)
     }
 
     override fun onConferenceTerminated(data: HashMap<String, Any>) {
 
-        Log.d(JITSI_PLUGIN_TAG, String.format("JitsiMeetPluginActivity.onConferenceTerminated: %s", data))
+        Log.d(JITSI_PLUGIN_TAG, String.format("JitsiMeetLocalPluginActivity.onConferenceTerminated: %s", data))
         JitsiMeetEventStreamHandler.instance.onConferenceTerminated(data)
         super.onConferenceTerminated(data)
     }
