@@ -1,4 +1,4 @@
-package com.gunschu.jitsi_meet
+package com.advoques.jitsi_meet_local
 
 import android.app.Activity
 import android.content.Intent

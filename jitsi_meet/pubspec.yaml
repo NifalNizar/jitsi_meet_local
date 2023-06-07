@@ -1,17 +1,18 @@
 name: jitsi_meet_local
 description: Jitsi Meet Local Plugin - A plugin for integrating open source Jitsi Meet API in flutter. Jitsi Meet is secure, fully featured and allows completely free video conferencing made with https://jitsi.org, a collection of open source projects
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/NifalNizar/jitsi_meet_local
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
-  flutter: ">=1.10.0"
+  sdk: '>=3.0.0 <4.0.0'
+  flutter: ">=1.20.0"
 
 dependencies:
+  change_app_package_name: ^1.1.0
   flutter:
     sdk: flutter
-  jitsi_meet_platform_interface: ^2.0.0
-  jitsi_meet_web_plugin: ^2.0.0
+  jitsi_meet_platform_interface_local: ^1.0.0
+  jitsi_meet_web_plugin_local: ^1.0.0
 
 dev_dependencies:
   flutter_test:
@@ -29,7 +30,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: com.gunschu.jitsi_meet
+        package: com.advoques.jitsi_meet_local
         pluginClass: JitsiMeetPlugin
       ios:
         pluginClass: JitsiMeetPlugin

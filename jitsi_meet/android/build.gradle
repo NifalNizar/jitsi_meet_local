@@ -1,15 +1,15 @@
-group 'com.gunschu.jitsi_meet'
+group 'com.advoques.jitsi_meet_local'
 version '1.0-SNAPSHOT'
 
 buildscript {
-    ext.kotlin_version = '1.6.10'
+    ext.kotlin_version = '1.7.10'
     repositories {
         google()
         jcenter()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.1.0'
+        classpath 'com.android.tools.build:gradle:7.2.0'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -28,7 +28,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
 android {
-    compileSdkVersion 31
+    compileSdkVersion 33
 
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
@@ -47,8 +47,7 @@ android {
 }
 
 dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     // Jitsi Meet from https://github.com/jitsi/jitsi-maven-repository/tree/master/releases/org/jitsi/react/jitsi-meet-sdk
-    implementation ('org.jitsi.react:jitsi-meet-sdk:3.3.0') { transitive = true }
+    implementation ('org.jitsi.react:jitsi-meet-sdk:8.0.0') { transitive = true }
 }

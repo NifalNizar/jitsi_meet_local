@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'room_name_constraint.dart';
 import 'room_name_constraint_type.dart';
 
-import 'package:jitsi_meet_platform_interface/jitsi_meet_platform_interface.dart';
+import 'package:jitsi_meet_platform_interface_local/jitsi_meet_platform_interface.dart';
 
-export 'package:jitsi_meet_platform_interface/jitsi_meet_platform_interface.dart'
+export 'package:jitsi_meet_platform_interface_local/jitsi_meet_platform_interface.dart'
     show
         JitsiMeetingOptions,
         JitsiMeetingResponse,

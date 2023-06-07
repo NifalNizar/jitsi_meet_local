@@ -1,14 +1,3 @@
-# jitsi_meet
-
-#### Support us using our patreon account. https://www.patreon.com/Gunschu
-
-
-Jitsi Meet Plugin for Flutter. Supports Android, iOS, and Web platforms.
-
-"Jitsi Meet is an open-source (Apache) WebRTC JavaScript application that uses Jitsi Videobridge to provide high quality, secure and scalable video conferences." 
-
-Find more information about Jitsi Meet [here](https://github.com/jitsi/jitsi-meet)
-
 ## Table of Contents
   - [Configuration](#configuration)
     - [IOS](#ios)
@@ -82,7 +71,7 @@ distributionBase=GRADLE_USER_HOME
 distributionPath=wrapper/dists
 zipStoreBase=GRADLE_USER_HOME
 zipStorePath=wrapper/dists
-distributionUrl=https\://services.gradle.org/distributions/gradle-5.6.4-all.zip <!-- Upgrade this -->
+distributionUrl=https\://services.gradle.org/distributions/gradle-7.5-all.zip <!-- Upgrade this -->
 ```
 
 #### AndroidManifest.xml
@@ -110,7 +99,7 @@ and `tools:replace="android:label"` to the application tag.
 Update your minimum sdk version to 23 in android/app/build.gradle
 ```groovy
 defaultConfig {
-    applicationId "com.gunschu.jitsi_meet_example"
+    applicationId "com.advoques.jitsi_meet_local_example"
     minSdkVersion 23 //Required for Jitsi
     targetSdkVersion 28
     versionCode flutterVersionCode.toInteger()
@@ -208,7 +197,7 @@ _joinMeeting() async {
       var options = JitsiMeetingOptions()
         ..room = "myroom" // Required, spaces will be trimmed
         ..serverURL = "https://someHost.com"
-        ..subject = "Meeting with Gunschu"
+        ..subject = "Meeting with advoques"
         ..userDisplayName = "My Name"
         ..userEmail = "myemail@email.com"
         ..userAvatarURL = "https://someimageurl.com/image.jpg" // or .png
