@@ -45,7 +45,7 @@ class JitsiMeetPluginActivity : JitsiMeetActivity() {
 
         if (isInPictureInPictureMode == false && onStopCalled) {
             // Picture-in-Picture mode has been closed, we can (should !) end the call
-            getJitsiView().leave()
+            // getJitsiView().leave()
         }
     }
 
