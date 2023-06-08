@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
   package="com.advoques.jitsi_meet_local">
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <uses-feature android:name="android.hardware.camera" />
     <application>
         <!-- some config changes are required for PiP (https://developer.android.com/guide/topics/ui/picture-in-picture#single_playback) -->
         <!-- Need autoRemoveFromRecents, otherwise an extra task for the jitsi view will stay open -->
