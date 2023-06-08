@@ -68,9 +68,9 @@ dependencies {
 Set distribution gradle wrapper to minimum 5.6.4.
 ```gradle
 distributionBase=GRADLE_USER_HOME
-distributionPath=wrapper/dists
+distributionPath=Local/dists
 zipStoreBase=GRADLE_USER_HOME
-zipStorePath=wrapper/dists
+zipStorePath=Local/dists
 distributionUrl=https\://services.gradle.org/distributions/gradle-7.5-all.zip <!-- Upgrade this -->
 ```
 

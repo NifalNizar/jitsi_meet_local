@@ -3,7 +3,7 @@
 # Run `pod lib lint jitsi_meet_wrapper.podspec` to validate before publishing.
 #
 Pod::Spec.new do |s|
-  s.name             = 'jitsi_meet_wrapper'
+  s.name             = 'jitsi_meet_local'
   s.version          = '0.0.1'
   s.summary          = 'A new Flutter project.'
   s.description      = <<-DESC

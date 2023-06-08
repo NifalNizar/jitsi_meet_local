@@ -1,15 +1,13 @@
 import 'dart:async';
-
-import 'package:jitsi_meet_wrapper_platform_interface/jitsi_meet_wrapper_platform_interface.dart';
-
-export 'package:jitsi_meet_wrapper_platform_interface/jitsi_meet_wrapper_platform_interface.dart'
+import 'package:jitsi_meet_local_platform_interface/jitsi_meet_local_platform_interface.dart';
+export 'package:jitsi_meet_local_platform_interface/jitsi_meet_local_platform_interface.dart'
     show
         JitsiMeetingOptions,
         JitsiMeetingResponse,
         FeatureFlag,
         JitsiMeetingListener;
 
-class JitsiMeetWrapper {
+class JitsiMeetLocal {
   /// Joins a meeting based on the JitsiMeetingOptions passed in.
   /// A JitsiMeetingListener can be attached to this meeting that will automatically
   /// be removed when the meeting has ended
@@ -24,16 +22,16 @@ class JitsiMeetWrapper {
           "URL must be of the format <scheme>://<host>[/path], like https://someHost.com");
     }
 
-    return await JitsiMeetWrapperPlatformInterface.instance
+    return await JitsiMeetLocalPlatformInterface.instance
         .joinMeeting(options: options, listener: listener);
   }
 
   static Future<JitsiMeetingResponse> setAudioMuted(bool isMuted) async {
-    return await JitsiMeetWrapperPlatformInterface.instance
+    return await JitsiMeetLocalPlatformInterface.instance
         .setAudioMuted(isMuted);
   }
 
   static Future<JitsiMeetingResponse> hangUp() async {
-    return await JitsiMeetWrapperPlatformInterface.instance.hangUp();
+    return await JitsiMeetLocalPlatformInterface.instance.hangUp();
   }
 }
