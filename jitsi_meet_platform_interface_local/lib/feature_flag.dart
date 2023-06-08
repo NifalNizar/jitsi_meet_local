@@ -45,9 +45,7 @@ enum FeatureFlag {
   /// Default: enabled (true).
   isFilmstripEnabled,
 
-  // TODO(saibotma): Test whether this works with the theme set on the android activity.
-  /// Flag indicating if fullscreen (immersive) mode should be enabled.
-  /// Default: enabled (true).
+
   isFullscreenEnabled,
 
   /// Flag indicating if the Help button should be enabled.
