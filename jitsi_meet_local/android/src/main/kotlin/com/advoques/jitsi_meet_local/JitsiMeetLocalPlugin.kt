@@ -28,7 +28,7 @@ class JitsiMeetLocalPlugin : FlutterPlugin, MethodCallHandler, ActivityAware {
     private var activity: Activity? = null
 
     override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
-        methodChannel = MethodChannel(flutterPluginBinding.binaryMessenger, "jitsi_meet_local" )
+        methodChannel = MethodChannel(flutterPluginBinding.binaryMessenger, "jitsi_meet_local")
         methodChannel.setMethodCallHandler(this)
 
         eventChannel = EventChannel(flutterPluginBinding.binaryMessenger, "jitsi_meet_local_events")

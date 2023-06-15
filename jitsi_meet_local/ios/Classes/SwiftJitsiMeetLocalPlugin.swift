@@ -2,9 +2,9 @@ import Flutter
 import UIKit
 import JitsiMeetSDK
 
-public class SwiftJitsiMeetWrapperPlugin: NSObject, FlutterPlugin, FlutterStreamHandler {
+public class SwiftJitsiMeetLocalPlugin: NSObject, FlutterPlugin, FlutterStreamHandler {
     var flutterViewController: UIViewController
-    var jitsiViewController: JitsiMeetWrapperViewController?
+    var jitsiViewController: JitsiMeetLocalViewController?
     var eventSink: FlutterEventSink?
 
     init(flutterViewController: UIViewController) {
@@ -12,13 +12,13 @@ public class SwiftJitsiMeetWrapperPlugin: NSObject, FlutterPlugin, FlutterStream
     }
 
     public static func register(with registrar: FlutterPluginRegistrar) {
-        let channel = FlutterMethodChannel(name: "jitsi_meet_wrapper", binaryMessenger: registrar.messenger())
+        let channel = FlutterMethodChannel(name: "jitsi_meet_local", binaryMessenger: registrar.messenger())
         let flutterViewController: UIViewController = (UIApplication.shared.delegate?.window??.rootViewController)!
-        let instance = SwiftJitsiMeetWrapperPlugin(flutterViewController: flutterViewController)
+        let instance = SwiftJitsiMeetLocalPlugin(flutterViewController: flutterViewController)
         registrar.addMethodCallDelegate(instance, channel: channel)
 
         // Setup event channel for conference events
-        let eventChannel = FlutterEventChannel(name: "jitsi_meet_wrapper_events", binaryMessenger: registrar.messenger())
+        let eventChannel = FlutterEventChannel(name: "jitsi_meet_local_events", binaryMessenger: registrar.messenger())
         eventChannel.setStreamHandler(instance)
     }
 
@@ -98,7 +98,7 @@ public class SwiftJitsiMeetWrapperPlugin: NSObject, FlutterPlugin, FlutterStream
             }
         }
 
-        jitsiViewController = JitsiMeetWrapperViewController.init(options: options, eventSink: eventSink!)
+        jitsiViewController = JitsiMeetLocalViewController.init(options: options, eventSink: eventSink!)
 
         // In order to make pip mode work.
         jitsiViewController!.modalPresentationStyle = .overFullScreen
