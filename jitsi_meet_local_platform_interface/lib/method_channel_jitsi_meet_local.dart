@@ -1,7 +1,8 @@
 import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
-import 'jitsi_meet_local_platform_interface.dart';
+import 'package:jitsi_meet_local_platform_interface/jitsi_meet_local_platform_interface.dart';
 
 const MethodChannel _methodChannel = MethodChannel('jitsi_meet_local');
 const EventChannel _eventChannel = EventChannel('jitsi_meet_local_events');
@@ -234,6 +235,8 @@ class MethodChannelJitsiMeetLocal extends JitsiMeetLocalPlatformInterface {
         return 'video-mute.enabled';
       case FeatureFlag.isVideoShareButtonEnabled:
         return 'video-share.enabled';
+      case FeatureFlag.isPreJoinPageEnabled:
+        return 'prejoinpage.enabled';
     }
   }
 }

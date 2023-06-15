@@ -45,7 +45,9 @@ enum FeatureFlag {
   /// Default: enabled (true).
   isFilmstripEnabled,
 
-
+  //  Test whether this works with the theme set on the android activity.
+  /// Flag indicating if fullscreen (immersive) mode should be enabled.
+  /// Default: enabled (true).
   isFullscreenEnabled,
 
   /// Flag indicating if the Help button should be enabled.
@@ -154,4 +156,8 @@ enum FeatureFlag {
   /// Flag indicating if the welcome page should be enabled.
   /// Default: disabled (false).
   isWelcomePageEnabled,
+
+  /// Flag indicating if the pre join page should be enabled.
+  /// Default: disabled (false).
+  isPreJoinPageEnabled,
 }

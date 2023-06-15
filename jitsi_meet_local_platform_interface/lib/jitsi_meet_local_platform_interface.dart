@@ -15,8 +15,7 @@ abstract class JitsiMeetLocalPlatformInterface extends PlatformInterface {
 
   static final Object _token = Object();
 
-  static JitsiMeetLocalPlatformInterface _instance =
-      MethodChannelJitsiMeetLocal();
+  static JitsiMeetLocalPlatformInterface _instance = MethodChannelJitsiMeetLocal();
 
   /// The default instance of [JitsiMeetLocalPlatformInterface] to use.
   ///
