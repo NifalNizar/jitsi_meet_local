@@ -181,7 +181,7 @@ Example:
 </html>
 ```
 *Note*
-See usage example in jitsi_meet plugin
+See usage example in jitsi_meet_local plugin
 
 <a name="join-a-meeting"></a>
 
@@ -190,23 +190,45 @@ See usage example in jitsi_meet plugin
 ```dart
 _joinMeeting() async {
     try {
-	  FeatureFlag featureFlag = FeatureFlag();
-	  featureFlag.welcomePageEnabled = false;
-	  featureFlag.resolution = FeatureFlagVideoResolution.MD_RESOLUTION; // Limit video resolution to 360p
-	  
-      var options = JitsiMeetingOptions()
-        ..room = "myroom" // Required, spaces will be trimmed
-        ..serverURL = "https://someHost.com"
-        ..subject = "Meeting with advoques"
-        ..userDisplayName = "My Name"
-        ..userEmail = "myemail@email.com"
-        ..userAvatarURL = "https://someimageurl.com/image.jpg" // or .png
-        ..audioOnly = true
-        ..audioMuted = true
-        ..videoMuted = true
-        ..featureFlag = featureFlag;
+	  Map<FeatureFlag, dynamic> featureFlags = {
+      FeatureFlag.isAddPeopleEnabled: false,
+      FeatureFlag.isChatEnabled: false,
+      FeatureFlag.resolution: 360,
+      FeatureFlag.isWelcomePageEnabled: false,
+      FeatureFlag.isPreJoinPageEnabled: false,
+    };
 
-      await JitsiMeet.joinMeeting(options);
+    if (Device.get().isAndroid!) {
+      featureFlags[FeatureFlag.isPipEnabled] = true;
+    } else if (Device.get().isIos!) {
+      featureFlags[FeatureFlag.isPipEnabled] = false;
+      featureFlags[FeatureFlag.isIosRecordingEnabled] = false;
+    }
+	  
+    JitsiMeetingOptions options = JitsiMeetingOptions(
+      roomNameOrUrl: "myroom" // Required, spaces will be trimmed
+      serverUrl: "https://someHost.com"
+      subject: "Meeting with advoques"
+      userDisplayName: "My Name"
+      userEmail = "myemail@email.com"
+      isAudioOnly = false
+      isAudioMuted = false
+      isVideoMuted = false
+      featureFlags = featureFlags;
+
+      await JitsiMeetLocal.joinMeeting(
+        options: options,
+        listener: JitsiMeetingListener(
+          onConferenceWillJoin: (message) {
+          },
+          onConferenceJoined: (message) {
+          },
+          onConferenceTerminated: (url, error) async {
+          },
+          onClosed: () {
+          },
+        ),
+      );
     } catch (error) {
       debugPrint("error: $error");
     }
@@ -295,7 +317,7 @@ in joinMeeting. The listener will automatically be removed when an
 onConferenceTerminated event is fired.
 
 ```
-await JitsiMeet.joinMeeting(options,
+await JitsiMeetLocal.joinMeeting(options,
   listener: JitsiMeetingListener(onConferenceWillJoin: ({message}) {
     debugPrint("${options.room} will join with message: $message");
   }, onConferenceJoined: ({message}) {
@@ -311,14 +333,14 @@ await JitsiMeet.joinMeeting(options,
 
 ### Global Meeting Events
 To listen to global meeting events, simply add a JitsiMeetListener with  
-`JitsiMeet.addListener(myListener)`. You can remove listeners using  
-`JitsiMeet.removeListener(listener)` or `JitsiMeet.removeAllListeners()`.
+`JitsiMeetLocal.addListener(myListener)`. You can remove listeners using  
+`JitsiMeetLocal.removeListener(listener)` or `JitsiMeetLocal.removeAllListeners()`.
 
 ```dart
 @override
 void initState() {
   super.initState();
-  JitsiMeet.addListener(JitsiMeetingListener(
+  JitsiMeetLocal.addListener(JitsiMeetingListener(
     onConferenceWillJoin: _onConferenceWillJoin,
     onConferenceJoined: _onConferenceJoined,
     onConferenceTerminated: _onConferenceTerminated,
@@ -330,7 +352,7 @@ void initState() {
 @override
 void dispose() {
   super.dispose();
-  JitsiMeet.removeAllListeners();
+  JitsiMeetLocal.removeAllListeners();
 }
 
 _onConferenceWillJoin({message}) {
@@ -360,7 +382,7 @@ _onError(error) {
 
 ## Closing a Meeting Programmatically
 ```dart
-JitsiMeet.closeMeeting();
+JitsiMeetLocal.hangUp();
 ```
 
 <a name="contributing"></a>
