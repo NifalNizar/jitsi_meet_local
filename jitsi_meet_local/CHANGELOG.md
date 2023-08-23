@@ -1,3 +1,6 @@
+## 1.1.0
+- Updated to org.jitsi.react:jitsi-meet-sdk:8.2.2
+
 ## 1.0.15
 - Android Changes
 
